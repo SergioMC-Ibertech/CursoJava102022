@@ -43,6 +43,10 @@ public class ListasJava {
 		// Metodo que sustituye el valor de un elemento en una determinada posicion, donde se encuentre ese elemento
 		System.out.println(lista1.set(0, "hey"));
 		
+		// Metodo eliminar un elemento, segun en la posicion que se encuentre dentro de la lista o un elemento en concreto
+		lista1.remove(0);
+		lista1.remove("Hola");
+		
 	}
 
 }
