@@ -1,4 +1,4 @@
-package EjercicioColegio;
+package EjercicioColegioForma2;
 
 public class Persona {
 

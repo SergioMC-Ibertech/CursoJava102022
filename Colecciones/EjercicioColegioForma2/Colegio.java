@@ -1,6 +1,9 @@
-package EjercicioColegio;
+package EjercicioColegioForma2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import curso.java.funciones.Utils_ejerciciocolegio;
 
 public class Colegio {
 	
@@ -32,22 +35,34 @@ public class Colegio {
 		 * 				Una vez terminado y que funcione, subirlo a GitHub
 		 * 					
 		 */
-		
+			
 		Colegio colegio = new Colegio("Colegio Ibertech");
+		int opcion=0;
+		ArrayList<Asignatura> asignaturas = new ArrayList<Asignatura>();
 		Asignatura[] asignatura = colegio.crearAsignatura();
-		ArrayList<Asignatura> asignaturas = new ArrayList<Asignatura>();	
 		for (Asignatura asig : asignatura){
 			asignaturas.add(asig);
 		}
+		ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();
+		Estudiante[] estudiante = colegio.crearEstudiante(asignaturas);
+		for (Estudiante estu : estudiante) {
+			estudiantes.add(estu);
+		}
+		do {
+			Utils_ejerciciocolegio.menuEjercicioColegio();
+			opcion=Utils_ejerciciocolegio.pedirNumero("Selecciona una opcion: ");
+			switch(opcion) {
+			case 1:colegio.mostrarAlumnos(estudiantes); break;
+			case 2:colegio.mostrarAlumnosMatematicas(estudiantes); break;
+			case 3:colegio.alumnosAprobados(estudiantes); break;
+			case 4:colegio.eliminarAlumnos(estudiantes); break;
+			case 5:System.out.println("Adios !!!");break;
+			}
+			System.out.println();
+		}while(opcion!=5);
 		
-		Estudiante[] estudiantes = colegio.crearEstudiante(asignaturas);
-		colegio.mostrarAlumnos(estudiantes);
-		System.out.println();
-		colegio.mostrarAlumnosMatematicas(estudiantes);
-		System.out.println();
-		colegio.alumnosAprobados(estudiantes);
-		System.out.println();
-		colegio.eliminarAlumnos(estudiantes);
+		
+		
 
 	}
 	
@@ -63,17 +78,29 @@ public class Colegio {
 	
 	// Metodo para crear a los estudiantes
 	private Estudiante[] crearEstudiante(ArrayList<Asignatura> asignaturas) {
-		Estudiante estudiante1 = new Estudiante("Guillermo", "Toretto", 89453245, asignaturas.get(numAsignatura()), asignaturas.get(numAsignatura()));
-		Estudiante estudiante2 = new Estudiante("Sergio", "Toretto", 56781298, asignaturas.get(numAsignatura()), asignaturas.get(numAsignatura()));
-		Estudiante estudiante3 = new Estudiante("Carlos", "Sainz", 45129878, asignaturas.get(numAsignatura()), asignaturas.get(numAsignatura()));
-		Estudiante estudiante4 = new Estudiante("Fernando", "Alonso", 32459878, asignaturas.get(numAsignatura()), asignaturas.get(numAsignatura()));
-		Estudiante estudiante5 = new Estudiante("Alex", "Palou", 21984532, asignaturas.get(numAsignatura()), asignaturas.get(numAsignatura()));
+		int asig1,asig2,asig3,asig4,asig5,asig6,asig7,asig8,asig9,asig10;
+		asig1=numAsignatura();
+		asig2=numAsignatura2(asig1);
+		Estudiante estudiante1 = new Estudiante("Guillermo", "Toretto", 89453245, asignaturas.get(asig1), asignaturas.get(asig2));
+		asig3=numAsignatura();
+		asig4=numAsignatura2(asig3);
+		Estudiante estudiante2 = new Estudiante("Sergio", "Toretto", 56781298, asignaturas.get(asig3), asignaturas.get(asig4));
+		asig5=numAsignatura();
+		asig6=numAsignatura2(asig5);
+		Estudiante estudiante3 = new Estudiante("Carlos", "Sainz", 45129878, asignaturas.get(asig5), asignaturas.get(asig6));
+		asig7=numAsignatura();
+		asig8=numAsignatura2(asig7);
+		Estudiante estudiante4 = new Estudiante("Fernando", "Alonso", 32459878, asignaturas.get(asig7), asignaturas.get(asig8));
+		asig9=numAsignatura();
+		asig10=numAsignatura2(asig9);
+		Estudiante estudiante5 = new Estudiante("Alex", "Palou", 21984532, asignaturas.get(asig9), asignaturas.get(asig10));
+		
 		Estudiante[] estudiantes= {estudiante1,estudiante2,estudiante3,estudiante4,estudiante5};
 		return estudiantes;
 	}
 	
 	// Metodo para recorrer los estudiantes del colegio
-	private void mostrarAlumnos(Estudiante[] estudiantes) {
+	private void mostrarAlumnos(ArrayList<Estudiante> estudiantes) {
 		System.out.println("Alumnos del centro:");
 		for (Estudiante estudiante : estudiantes) {
 			System.out.println(estudiante.toString());
@@ -81,7 +108,7 @@ public class Colegio {
 	}
 	
 	// Metodo para mostrar los alumnos que cursan la asignatura de matematicas
-	private void mostrarAlumnosMatematicas(Estudiante[] estudiantes) {
+	private void mostrarAlumnosMatematicas(ArrayList<Estudiante> estudiantes) {
 		System.out.println("Alumnos que cursan la asignatura de matematicas:");
 		for (Estudiante estudiante : estudiantes) {
 			if (estudiante.asignatura.getNombre()=="Matematicas" || estudiante.asignatura2.getNombre()=="Matematicas") {
@@ -91,7 +118,7 @@ public class Colegio {
 	}
 	
 	// Metodo para averiguar que alumnos han aprobado el curso, basandonos en un calculo de la nota media
-	private void alumnosAprobados(Estudiante[] estudiantes) {
+	private void alumnosAprobados(ArrayList<Estudiante> estudiantes) {
 		double media = 0;
 		System.out.println("Valoraciones del curso:");
 		for (Estudiante estudiante : estudiantes) {
@@ -105,40 +132,51 @@ public class Colegio {
 	}
 	
 	// Metodo para eliminar a todos aquellos alumnos que hayan suspendido la asignatura de lengua
-	public void eliminarAlumnos(Estudiante[] estudiantes) {
+	public void eliminarAlumnos(ArrayList<Estudiante> estudiantes) {
 		boolean eliminado=false;
-		Estudiante[] estu=estudiantes;
 		System.out.println("Alumnos eliminados por haber suspendido la asignatura de lengua: ");
-		for (int i=0; i<estudiantes.length; i++) {
-			if (estudiantes[i].asignatura.getNombre()=="Lengua" && estudiantes[i].asignatura.getNota()<5) {
-				}else if (estudiantes[i].asignatura2.getNombre()=="Lengua" && estudiantes[i].asignatura2.getNota()<5) {
-					System.out.println(estudiantes[i].toString()+" ha sido eliminado.");
-					estu[i]=null;
-					eliminado=true;
-				}
-			estu[i]=estudiantes[i];
+		for (int i=0; i<=estudiantes.size(); i++) {
+			if ((estudiantes.get(i).getAsignatura().getNombre()=="Lengua" && estudiantes.get(i).getAsignatura().getNota()<5)
+				|| (estudiantes.get(i).getAsignatura2().getNombre()=="Lengua" && estudiantes.get(i).getAsignatura2().getNota()<5)) {			
+				eliminado=true;
+			}
+			if (eliminado==true) {
+				System.out.println(estudiantes.get(i).toString()+" ha sido eliminado.");
+				estudiantes.remove(estudiantes.get(i));
+			}		
 		}
-		
 		if (eliminado==false) {
 			System.out.println("No ha suspendido ningun alumno la asignatura de Lengua.");
 		}
 		System.out.println();
-		// Mostramos los alumnos
-		for (Estudiante estudiante : estu) {
-			if (estudiante != null) {
-				System.out.println(estudiante.toString());
-			}else
+		// Mostramos los alumnos restantes
+		for (Estudiante estudiante : estudiantes) {
+			if (estudiantes.isEmpty()) {
 				System.out.println("Vacante estudiante vacia");
+			}else
+				System.out.println(estudiante.toString());
 		}
 	}
 	
 	private double nota() {
-		double nota = Math.random()*10+1;
+		double nota = Math.floor(Math.random()*10+1);
 		return nota;
 	}
 	
 	private int numAsignatura() {
-		int nota = (int)(Math.random()*4);
-		return nota;
+		int asignatura = (int)(Math.random()*4);
+		return asignatura;
+	}
+	
+	private int numAsignatura2(int num) {
+		int asignatura=0;
+		boolean valido = false;
+		do {
+			asignatura = (int)(Math.random()*4);
+			if (asignatura!=num) {
+				valido=true;
+			}
+		}while(valido!=true);
+		return asignatura;
 	}
 }

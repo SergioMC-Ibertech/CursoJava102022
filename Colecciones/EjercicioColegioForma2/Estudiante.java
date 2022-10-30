@@ -1,4 +1,4 @@
-package EjercicioColegio;
+package EjercicioColegioForma2;
 
 public class Estudiante extends Persona{
 
@@ -29,7 +29,7 @@ public class Estudiante extends Persona{
 
 	@Override
 	public String toString() {
-		return "El estudiante "+getNombre()+" "+getApellidos()+" con dni "+getDni();
+		return "El estudiante "+getNombre()+" "+getApellidos()+" con dni "+getDni()+" "+getAsignatura().getNombre()+" "+getAsignatura().getNota()+" "+getAsignatura2().getNombre()+" "+getAsignatura2().getNota();
 	}
 	
 }
