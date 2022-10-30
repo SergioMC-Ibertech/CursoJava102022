@@ -1,4 +1,4 @@
-package Ejercicios;
+package EjercicioColegio;
 
 public class Estudiante extends Persona{
 
