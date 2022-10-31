@@ -1,6 +1,7 @@
-package EjercicioColegioForma2;
+package EjercicioColegioForma3Set;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import curso.java.funciones.Utils_ejerciciocolegio;
 
@@ -110,7 +111,7 @@ public class Colegio {
 	private void mostrarAlumnosMatematicas(ArrayList<Estudiante> estudiantes) {
 		System.out.println("Alumnos que cursan la asignatura de matematicas:");
 		for (Estudiante estudiante : estudiantes) {
-			if (estudiante.asignatura.getNombre().equals("Matematicas") || estudiante.asignatura2.getNombre().equals("Matematicas")) {
+			if (estudiante.asignatura.getNombre()=="Matematicas" || estudiante.asignatura2.getNombre()=="Matematicas") {
 				System.out.println(estudiante.toString());
 			}
 		}
@@ -132,25 +133,25 @@ public class Colegio {
 	
 	// Metodo para eliminar a todos aquellos alumnos que hayan suspendido la asignatura de lengua
 	public void eliminarAlumnos(ArrayList<Estudiante> estudiantes) {
-		boolean suspendo=false;
+		boolean eliminado=false;
 		System.out.println("Alumnos eliminados por haber suspendido la asignatura de lengua: ");
 		for (int i=0; i<=estudiantes.size(); i++) {
-			if ((estudiantes.get(i).getAsignatura().getNombre().equals("Lengua") && estudiantes.get(i).getAsignatura().getNota()<5)
-				|| (estudiantes.get(i).getAsignatura2().getNombre().equals("Lengua") && estudiantes.get(i).getAsignatura2().getNota()<5)) {			
-				suspendo=true;
+			if ((estudiantes.get(i).getAsignatura().getNombre()=="Lengua" && estudiantes.get(i).getAsignatura().getNota()<5)
+				|| (estudiantes.get(i).getAsignatura2().getNombre()=="Lengua" && estudiantes.get(i).getAsignatura2().getNota()<5)) {			
+				eliminado=true;
 			}
-			if (suspendo==true) {
+			if (eliminado==true) {
 				System.out.println(estudiantes.get(i).toString()+" ha sido eliminado.");
 				estudiantes.remove(estudiantes.get(i));
 			}		
 		}
-		if (suspendo==false) {
+		if (eliminado==false) {
 			System.out.println("No ha suspendido ningun alumno la asignatura de Lengua.");
 		}
 		System.out.println();
 		// Mostramos los alumnos restantes
 		for (Estudiante estudiante : estudiantes) {
-			if (estudiante==null) {
+			if (estudiantes.isEmpty()) {
 				System.out.println("Vacante estudiante vacia");
 			}else
 				System.out.println(estudiante.toString());
