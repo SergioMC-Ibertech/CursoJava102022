@@ -1,16 +1,16 @@
-package EjercicioPractico;
+package EjercicioGuerra;
 
-public abstract class DatosGuerreros implements ITurnos{
+public abstract class Naves implements ITurnos{
 
 	private String nombre;
-	private String apellido;
+	private String tipoNave;
 	private int puntosAtaque;
 	private int puntosDefensa;
 	
-	public DatosGuerreros(String nombre, String apellido, int puntosAtaque, int puntosDefensa) {
+	public Naves(String nombre, String tipoNave, int puntosAtaque, int puntosDefensa) {
 		super();
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.tipoNave = tipoNave;
 		this.puntosAtaque = puntosAtaque;
 		this.puntosDefensa = puntosDefensa;
 	}
@@ -23,12 +23,12 @@ public abstract class DatosGuerreros implements ITurnos{
 		this.nombre = nombre;
 	}
 	
-	public String getApellido() {
-		return apellido;
+	public String getTipoNave() {
+		return tipoNave;
 	}
 	
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setTipoNave(String tipoNave) {
+		this.tipoNave = tipoNave;
 	}
 	
 	public int getPuntosAtaque() {
@@ -46,9 +46,10 @@ public abstract class DatosGuerreros implements ITurnos{
 	public void setPuntosDefensa(int puntosDefensa) {
 		this.puntosDefensa = puntosDefensa;
 	}
+	
 	@Override
 	public String toString() {
-		return "DatosGuerreros [nombre=" + nombre + ", apellido=" + apellido + ", puntosAtaque=" + puntosAtaque
+		return "DatosNaves [nombre=" + nombre + ", tipoNave=" + tipoNave + ", puntosAtaque=" + puntosAtaque
 				+ ", puntosDefensa=" + puntosDefensa + "]";
 	}
 	

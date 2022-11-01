@@ -1,4 +1,4 @@
-package EjercicioPractico;
+package EjercicioGuerra;
 
 public class Marines extends DatosGuerreros {
 

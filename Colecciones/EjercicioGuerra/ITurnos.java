@@ -1,4 +1,4 @@
-package EjercicioPractico;
+package EjercicioGuerra;
 
 public interface ITurnos {
 

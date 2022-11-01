@@ -1,15 +1,15 @@
-package EjercicioPractico;
+package EjercicioGuerra;
 
-public class NavesElfos extends Naves {
+public class NavesMarines extends Naves {
 
-	public NavesElfos(String nombre, String tipoNave, int puntosAtaque, int puntosDefensa) {
+	public NavesMarines(String nombre, String tipoNave, int puntosAtaque, int puntosDefensa) {
 		super(nombre, tipoNave, puntosAtaque, puntosDefensa);
 		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public String toString() {
-		return "NavesElfos [getNombre()=" + getNombre() + ", getTipoNave()=" + getTipoNave() + ", getPuntosAtaque()="
+		return "NavesMarines [getNombre()=" + getNombre() + ", getTipoNave()=" + getTipoNave() + ", getPuntosAtaque()="
 				+ getPuntosAtaque() + ", getPuntosDefensa()=" + getPuntosDefensa() + "]";
 	}
 

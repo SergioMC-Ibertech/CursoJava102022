@@ -1,28 +1,28 @@
-package EjercicioPractico;
+package EjercicioGuerra;
 
-public class Orcos extends DatosGuerreros {
+public class Vampiros extends DatosGuerreros {
 
-	public Orcos(String nombre, String apellido, int puntosAtaque, int puntosDefensa) {
+	public Vampiros(String nombre, String apellido, int puntosAtaque, int puntosDefensa) {
 		super(nombre, apellido, puntosAtaque, puntosDefensa);
 		// TODO Auto-generated constructor stub
-	}
-	
+	}	
+
 	@Override
 	public String toString() {
-		return "Orcos [getNombre()=" + getNombre() + ", getApellido()=" + getApellido() + ", getPuntosAtaque()="
+		return "Vampiros [getNombre()=" + getNombre() + ", getApellido()=" + getApellido() + ", getPuntosAtaque()="
 				+ getPuntosAtaque() + ", getPuntosDefensa()=" + getPuntosDefensa() + "]";
 	}
 
 	@Override
 	public void atacar() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void defender() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
