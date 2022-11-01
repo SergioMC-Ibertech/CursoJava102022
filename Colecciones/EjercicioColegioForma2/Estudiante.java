@@ -11,6 +11,10 @@ public class Estudiante extends Persona{
 		this.asignatura2 = asignatura2;
 	}
 	
+	public Estudiante(String nombre, String apellidos, long dni) {
+		super(nombre, apellidos, dni);
+	}
+	
 	public Asignatura getAsignatura() {
 		return asignatura;
 	}

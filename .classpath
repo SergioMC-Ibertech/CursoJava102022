@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="POO"/>
 	<classpathentry kind="src" path="Colecciones"/>
+	<classpathentry kind="src" path="Maps"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

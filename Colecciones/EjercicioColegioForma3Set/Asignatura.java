@@ -29,7 +29,7 @@ public class Asignatura {
 
 	@Override
 	public String toString() {
-		return "Asignatura [nombre=" + nombre + ", nota=" + nota + "]";
+		return "\tAsignatura [nombre=" + nombre + ", nota=" + nota + "]";
 	}
 	
 }

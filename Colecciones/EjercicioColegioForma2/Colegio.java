@@ -1,6 +1,7 @@
 package EjercicioColegioForma2;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import curso.java.funciones.Utils_ejerciciocolegio;
 
@@ -37,12 +38,12 @@ public class Colegio {
 			
 		Colegio colegio = new Colegio("Colegio Ibertech");
 		int opcion=0;
-		ArrayList<Asignatura> asignaturas = new ArrayList<Asignatura>();
+		CopyOnWriteArrayList<Asignatura> asignaturas = new CopyOnWriteArrayList<Asignatura>();
 		Asignatura[] asignatura = colegio.crearAsignatura();
 		for (Asignatura asig : asignatura){
 			asignaturas.add(asig);
 		}
-		ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();
+		CopyOnWriteArrayList<Estudiante> estudiantes = new CopyOnWriteArrayList<Estudiante>();
 		Estudiante[] estudiante = colegio.crearEstudiante(asignaturas);
 		for (Estudiante estu : estudiante) {
 			estudiantes.add(estu);
@@ -76,7 +77,7 @@ public class Colegio {
 	}
 	
 	// Metodo para crear a los estudiantes
-	private Estudiante[] crearEstudiante(ArrayList<Asignatura> asignaturas) {
+	private Estudiante[] crearEstudiante(CopyOnWriteArrayList<Asignatura> asignaturas) {
 		int asig1,asig2,asig3,asig4,asig5,asig6,asig7,asig8,asig9,asig10;
 		asig1=numAsignatura();
 		asig2=numAsignatura2(asig1);
@@ -99,7 +100,7 @@ public class Colegio {
 	}
 	
 	// Metodo para recorrer los estudiantes del colegio
-	private void mostrarAlumnos(ArrayList<Estudiante> estudiantes) {
+	private void mostrarAlumnos(CopyOnWriteArrayList<Estudiante> estudiantes) {
 		System.out.println("Alumnos del centro:");
 		for (Estudiante estudiante : estudiantes) {
 			System.out.println(estudiante.toString());
@@ -107,7 +108,7 @@ public class Colegio {
 	}
 	
 	// Metodo para mostrar los alumnos que cursan la asignatura de matematicas
-	private void mostrarAlumnosMatematicas(ArrayList<Estudiante> estudiantes) {
+	private void mostrarAlumnosMatematicas(CopyOnWriteArrayList<Estudiante> estudiantes) {
 		System.out.println("Alumnos que cursan la asignatura de matematicas:");
 		for (Estudiante estudiante : estudiantes) {
 			if (estudiante.asignatura.getNombre().equals("Matematicas") || estudiante.asignatura2.getNombre().equals("Matematicas")) {
@@ -117,7 +118,7 @@ public class Colegio {
 	}
 	
 	// Metodo para averiguar que alumnos han aprobado el curso, basandonos en un calculo de la nota media
-	private void alumnosAprobados(ArrayList<Estudiante> estudiantes) {
+	private void alumnosAprobados(CopyOnWriteArrayList<Estudiante> estudiantes) {
 		double media = 0;
 		System.out.println("Valoraciones del curso:");
 		for (Estudiante estudiante : estudiantes) {
@@ -131,7 +132,7 @@ public class Colegio {
 	}
 	
 	// Metodo para eliminar a todos aquellos alumnos que hayan suspendido la asignatura de lengua
-	public void eliminarAlumnos(ArrayList<Estudiante> estudiantes) {
+	public void eliminarAlumnos(CopyOnWriteArrayList<Estudiante> estudiantes) {
 		boolean suspendo=false;
 		System.out.println("Alumnos eliminados por haber suspendido la asignatura de lengua: ");
 		for (int i=0; i<=estudiantes.size(); i++) {

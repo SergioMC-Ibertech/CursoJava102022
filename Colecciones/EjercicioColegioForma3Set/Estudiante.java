@@ -1,35 +1,27 @@
 package EjercicioColegioForma3Set;
 
+import java.util.Set;
+
 public class Estudiante extends Persona{
 
-	Asignatura asignatura;
-	Asignatura asignatura2;
+	Set<Asignatura> asignaturas;
 
-	public Estudiante(String nombre, String apellidos, long dni, Asignatura asignatura,Asignatura asignatura2) {
+	public Estudiante(String nombre, String apellidos, String dni, Set<Asignatura> asignaturas) {
 		super(nombre, apellidos, dni);
-		this.asignatura = asignatura;
-		this.asignatura2 = asignatura2;
-	}
-	
-	public Asignatura getAsignatura() {
-		return asignatura;
+		this.asignaturas = asignaturas;
 	}
 
-	public void setAsignatura(Asignatura asignatura) {
-		this.asignatura = asignatura;
+	public Set<Asignatura> getAsignaturas() {
+		return asignaturas;
 	}
 
-	public Asignatura getAsignatura2() {
-		return asignatura2;
-	}
-
-	public void setAsignatura2(Asignatura asignatura2) {
-		this.asignatura2 = asignatura2;
+	public void setAsignaturas(Set<Asignatura> asignaturas) {
+		this.asignaturas = asignaturas;
 	}
 
 	@Override
 	public String toString() {
-		return "El estudiante "+getNombre()+" "+getApellidos()+" con dni "+getDni()+" "+getAsignatura().getNombre()+" "+getAsignatura().getNota()+" "+getAsignatura2().getNombre()+" "+getAsignatura2().getNota();
+		return "El estudiante "+getNombre()+" "+getApellidos()+" con dni "+getDni();
 	}
 	
 }
