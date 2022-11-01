@@ -66,8 +66,10 @@ public class ColegioMapa1 {
 	
 	// Metodo que permite imprimir por pantalla los datos del alumno
 	private void mostrarAlumnos(Map alumnos1, Map alumnos2) {
+		System.out.println(alumnos1.keySet());
 		System.out.println(alumnos1.values());
 		System.out.println();
+		System.out.println(alumnos2.keySet());
 		System.out.println(alumnos2.values());
 	}
 	
